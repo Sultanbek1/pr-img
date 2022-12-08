@@ -92,7 +92,7 @@ const data1 = [
 const LocationCard = () => {
   const [places, setPlaces] = useState<any[]>([]);
   const [langLong, setLangLong] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     setPlaces(data1);
     setLangLong(`(51.5153, 0.0566)`);
@@ -108,7 +108,7 @@ const LocationCard = () => {
         color: "white",
         width: "min(800px, 100%)",
         marginInline: "auto",
-        padding: "2rem 3rem",
+        paddingBottom: "2rem",
       }}
     >
       <Typography variant="h3" sx={{ textAlign: "center" }}>
@@ -138,18 +138,22 @@ const LocationCard = () => {
 
       <Grid
         container
-        // justifyContent="center"
         alignContent="center"
         spacing={0.5}
+        sx={{
+          marginInline: "auto",
+          width: "100%",
+          justifyContent: { xs: "center", sm: "initial" },
+        }}
       >
         {places.map((item, index) => (
-          <Grid item md={6} key={index}>
+          <Grid item sm={6} key={index} >
             <Box
               sx={{
                 backgroundImage: `linear-gradient(
                   to bottom,
                   rgba(0, 0, 0, 0),
-                  rgba(0, 0, 0, 0.6)
+                  rgba(0, 0, 0, 0.6 )
                 ), url(${item.prefix}300x300${item.suffix})`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
