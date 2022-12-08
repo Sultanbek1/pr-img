@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 
-import {
-  Box,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 
 const data1 = [
   {
@@ -96,13 +92,15 @@ const data1 = [
 const LocationCard = () => {
   const [places, setPlaces] = useState<any[]>([]);
   const [langLong, setLangLong] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setPlaces(data1);
     setLangLong(`(51.5153, 0.0566)`);
   }, []);
   return isLoading ? (
-    <h1>loading...</h1>
+    <Typography variant="h1" sx={{ color: "#111" }}>
+      loading...
+    </Typography>
   ) : (
     <Box
       sx={{
@@ -157,7 +155,7 @@ const LocationCard = () => {
                 backgroundRepeat: "no-repeat",
                 height: 300,
                 width: 300,
-                marginLeft: index % 2 === 0 ? "auto": '0',
+                marginLeft: index % 2 === 0 ? "auto" : "0",
                 // marginRight: index === places.length - 1 && "auto",
                 position: "relative",
               }}
