@@ -157,7 +157,7 @@ const LocationCard = () => {
                 backgroundRepeat: "no-repeat",
                 height: 300,
                 width: 300,
-                marginLeft: index % 2 === 0 && "auto",
+                marginLeft: index % 2 === 0 ? "auto": '0',
                 // marginRight: index === places.length - 1 && "auto",
                 position: "relative",
               }}
